@@ -161,3 +161,4 @@ cython_debug/
 #.idea/
 sac.json
 README_TZ.md
+**/000*_*.py
