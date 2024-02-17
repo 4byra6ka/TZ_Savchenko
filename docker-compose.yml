@@ -18,7 +18,7 @@ services:
       dockerfile: compose/django/Dockerfile
     container_name: django
     volumes:
-      - ./db:/home/django/app/db/
+      - ./:/home/django/app/
     expose:
       - 8000
     env_file:
