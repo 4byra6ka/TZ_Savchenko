@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "tz-savchenko"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "tz_savchenko"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.2"
+djangorestframework = "^3.14.0"
+python-dotenv = "^1.0.1"
+requests = "^2.31.0"
+google-api-python-client = "^2.118.0"
+google-auth-httplib2 = "^0.2.0"
+google-auth-oauthlib = "^1.2.0"
+oauth2client = "^4.1.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

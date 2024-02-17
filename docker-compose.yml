@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  nginx:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: compose/nginx/Dockerfile
+    container_name: nginx
+    ports:
+      - 80:80
+    depends_on:
+      - web
+  web:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: compose/django/Dockerfile
+    container_name: django
+    volumes:
+      - ./db:/home/django/app/db/
+    expose:
+      - 8000
+    env_file:
+      - .env
