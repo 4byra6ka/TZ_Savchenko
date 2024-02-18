@@ -2,23 +2,26 @@ version: "3.8"
 
 services:
   nginx:
-    restart: unless-stopped
+    restart: always
     build:
       context: .
       dockerfile: compose/nginx/Dockerfile
     container_name: nginx
     ports:
       - 80:80
+    volumes:
+      - ./temp/static:/home/django/app/static
     depends_on:
       - web
   web:
-    restart: unless-stopped
+    restart: always
     build:
       context: .
       dockerfile: compose/django/Dockerfile
     container_name: django
     volumes:
-      - ./:/home/django/app/
+      - ./temp/static:/home/django/app/static
+      - ./db.sqlite3:/home/django/app/db.sqlite3
     expose:
       - 8000
     env_file:
